@@ -1,97 +1,47 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: OpsOrchestra
+description: AI-powered Business Operations Analyst
 ---
 
-## Setting up
+# OpsOrchestra
 
-Get your documentation site up and running in minutes.
+> AI-powered Business Operations Analyst that builds institutional knowledge with every interaction.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+## Overview
 
-## Make it yours
+OpsOrchestra is an AI-first BizOps platform for SMB operations teams. It combines conversational AI with document intelligence, knowledge graphs, and automated reporting.
 
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/guides/quickstart">
+    Get up and running in minutes
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Architecture" icon="diagram-project" href="/architecture/overview">
+    Understand the system design
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="Business Case" icon="chart-line" href="/business-case">
+    Value proposition and market fit
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Investor Materials" icon="handshake" href="/investor/pitch-narrative">
+    Pitch narrative and traction
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## Core Capabilities
 
-Everything you need to create world-class documentation.
+- **Document Intelligence**: Ingest PDFs, CSVs, Excel with automatic entity extraction
+- **Knowledge Graph**: Relationships between companies, people, metrics, tools
+- **RAG-Enhanced Chat**: Context-aware responses grounded in your documents
+- **Decision Tracing**: Full audit trail with OpenTelemetry-compatible IDs
+- **Report Generation**: Executive summaries and KPI reports
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## Tech Stack
 
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+| Layer | Technology |
+|-------|------------|
+| Backend | FastAPI |
+| Agent | LangGraph |
+| LLM | Claude 3.5 Sonnet |
+| Vector Store | ChromaDB |
+| Graph | NetworkX |
+| Observability | Langfuse |
+| Frontend | Streamlit |

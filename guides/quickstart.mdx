@@ -1,0 +1,55 @@
+---
+title: Quickstart
+description: Get OpsOrchestra running locally
+---
+
+# Quickstart
+
+Get OpsOrchestra running locally in under 5 minutes.
+
+## Prerequisites
+
+- Python 3.11+
+- Anthropic API key
+
+## Installation
+
+<Steps>
+  <Step title="Clone and install">
+    ```bash
+    git clone https://github.com/im-sham/opsorchestra.git
+    cd opsorchestra
+    pip install -e .
+    ```
+  </Step>
+  <Step title="Configure environment">
+    ```bash
+    cp .env.example .env
+    # Edit .env and add your ANTHROPIC_API_KEY
+    ```
+  </Step>
+  <Step title="Start the API">
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+  </Step>
+  <Step title="Start the UI (separate terminal)">
+    ```bash
+    streamlit run ui/streamlit_app.py
+    ```
+  </Step>
+</Steps>
+
+## Access Points
+
+| Service | URL |
+|---------|-----|
+| API | http://localhost:8000 |
+| API Docs | http://localhost:8000/docs |
+| Chat UI | http://localhost:8501 |
+
+## Next Steps
+
+1. Upload a document via the UI
+2. Ask questions about your data
+3. Explore the knowledge graph

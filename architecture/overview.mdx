@@ -1,0 +1,50 @@
+---
+title: Architecture Overview
+description: System design and components
+---
+
+# Architecture Overview
+
+## High-Level Design
+
+```mermaid
+graph TD
+    UI[Streamlit UI] --> API[FastAPI Backend]
+    API --> Agent[LangGraph Agent]
+    Agent --> LLM[Claude 3.5 Sonnet]
+    Agent --> RAG[ChromaDB Vector Store]
+    Agent --> KG[Knowledge Graph]
+    Agent --> Traces[Decision Trace Logger]
+    Traces --> Langfuse[Langfuse Observability]
+```
+
+## Components
+
+### Agent Layer (LangGraph)
+
+The core intelligence, orchestrating:
+- **Retrieval nodes** for document context
+- **Reasoning nodes** for response generation
+- **Tool nodes** for structured actions
+
+### Document Intelligence
+
+- **Loaders**: PDF, CSV, Excel parsing
+- **Chunker**: Recursive character splitting
+- **Embedder**: Sentence-transformers
+- **Vector Store**: ChromaDB with persistence
+
+### Knowledge Graph (NetworkX)
+
+- **Entities**: Companies, People, Metrics, Tools, Processes
+- **Relationships**: Co-retrieval patterns, explicit links
+- **Abstraction**: `GraphStore` protocol for future Neo4j migration
+
+## Key Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| LangGraph over LangChain | Better state management, graph-based flows |
+| NetworkX first | Simpler, migrate to Neo4j when triggered |
+| Langfuse | Open-source, self-hostable observability |
+| ChromaDB | Great for prototyping, production-ready |
