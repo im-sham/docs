@@ -48,3 +48,18 @@ The core intelligence, orchestrating:
 | NetworkX first | Simpler, migrate to Neo4j when triggered |
 | Langfuse | Open-source, self-hostable observability |
 | ChromaDB | Great for prototyping, production-ready |
+
+## Security & Privacy
+
+OpsOrchestra is designed with **Privacy by Design**:
+
+- **Data Isolation**: Each tenant's data is logically isolated in the vector store.
+- **Zero-Retention LLM**: We use Anthropic's zero-retention API options where applicable.
+- **Role-Based Access**: (Roadmap) Granular permissions for document access.
+
+## System Constraints
+
+- **File Size**: Max 50MB per document.
+- **Context Window**: 200k tokens (Claude 3.5 Sonnet).
+- **Latency**: RAG queries avg ~3-5s due to multi-step reasoning.
+

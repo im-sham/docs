@@ -30,6 +30,12 @@
             "pages": [
               "guides/quickstart"
             ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "guides/advanced-configuration"
+            ]
           }
         ]
       },
@@ -39,7 +45,9 @@
           {
             "group": "System Design",
             "pages": [
-              "architecture/overview"
+              "architecture/overview",
+              "architecture/data-flow",
+              "architecture/decision-engine"
             ]
           }
         ]

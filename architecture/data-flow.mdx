@@ -1,0 +1,73 @@
+---
+title: Data Flow
+description: How data moves from ingestion to insight
+---
+
+# Data Flow Architecture
+
+## Ingestion Pipeline
+
+The ingestion process converts unstructured documents into structured knowledge.
+
+```mermaid
+graph LR
+    Doc[Document] --> Loader{Loader}
+    Loader -->|PDF| PyPDF[PyPDFLoader]
+    Loader -->|CSV| Pandas[PandasLoader]
+    Loader -->|Excel| Unstruct[UnstructuredExcel]
+    
+    PyPDF --> Text[Raw Text]
+    Pandas --> Text
+    Unstruct --> Text
+    
+    Text --> Chunker[Recursive Chunker]
+    Chunker --> Embed[Sentence Transformer]
+    
+    Embed --> VectorDB[(ChromaDB)]
+    Embed --> GraphExtract[Entity Extraction]
+    GraphExtract --> GraphDB[(NetworkX Graph)]
+```
+
+### 1. Verification & Validation
+Incoming files are validated for MIME type and size. We support:
+- `application/pdf`
+- `text/csv`
+- `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+
+### 2. Chunking Strategy
+We use a **RecursiveCharacterTextSplitter** with:
+- Chunk size: 1000 tokens
+- Overlap: 200 tokens
+- Separators: `["\n\n", "\n", " ", ""]`
+
+This ensures semantic coherence while fitting within embedding model context windows.
+
+## Retrieval Pipeline
+
+When a user asks a question, we employ a **Hybrid Retrieval** strategy.
+
+1. **Semantic Search**: Top-k (k=5) retrieval from ChromaDB using cosine similarity.
+2. **Graph Traversal**: 1-hop neighbor lookup in NetworkX for entities found in the query.
+3. **Context Fusion**: Merging vector results with graph context + co-retrieval history.
+
+## Decision & Trace Flow
+
+Every action is logged for observability.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Agent
+    participant LLM
+    participant TraceLog
+    
+    User->>Agent: Question
+    Agent->>TraceLog: Start Trace
+    Agent->>LLM: Plan Response
+    LLM-->>Agent: Action (Retrieve)
+    Agent->>TraceLog: Log Action
+    Agent->>LLM: Context
+    LLM-->>Agent: Final Answer
+    Agent->>TraceLog: Log Decision
+    Agent-->>User: Response
+```
