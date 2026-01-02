@@ -30,18 +30,19 @@ OpsOrchestra is an AI-first BizOps platform for SMB operations teams. It combine
 
 - **Document Intelligence**: Ingest PDFs, CSVs, Excel with automatic entity extraction
 - **Knowledge Graph**: Relationships between companies, people, metrics, tools
-- **RAG-Enhanced Chat**: Context-aware responses grounded in your documents
+- **Hybrid RAG**: Intelligent query routing between semantic search and graph expansion
+- **KPI/ROI Analytics**: Metric extraction, trend analysis, and vendor spend optimization
 - **Decision Tracing**: Full audit trail with OpenTelemetry-compatible IDs
-- **Report Generation**: Executive summaries and KPI reports
+- **Report Generation**: Executive summaries and KPI dashboards
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|------------|
 | Backend | FastAPI |
-| Agent | LangGraph |
+| Agent | LangGraph + Hybrid RAG Router |
 | LLM | Claude 3.5 Sonnet |
 | Vector Store | ChromaDB |
 | Graph | NetworkX |
 | Observability | Langfuse |
-| Frontend | Streamlit |
+| Frontend | React 19 + Vite (Tactical HUD) |

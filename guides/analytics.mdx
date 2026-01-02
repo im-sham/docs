@@ -1,0 +1,69 @@
+---
+title: Analytics & ROI
+description: KPI tracking and vendor ROI analysis
+---
+
+# Analytics & ROI
+
+OpsOrchestra includes built-in analytics capabilities for tracking KPIs and calculating vendor ROI.
+
+## KPI Tracking
+
+The KPI module (`app/kpi/`) provides automated metric extraction from your documents.
+
+### Capabilities
+
+- **Metric Extraction**: LLM-assisted extraction of numerical KPIs from PDFs and spreadsheets
+- **Trend Identification**: Statistical regression to detect increasing/decreasing/stable patterns
+- **Anomaly Detection**: Z-score thresholding to flag unusual values
+
+### Data Models
+
+| Model | Purpose |
+|-------|---------|
+| `KPIMetric` | Single data point (name, value, unit, period, source) |
+| `KPITimeSeries` | Collection of metrics over time |
+| `TrendResult` | Analysis output (direction, growth rate, confidence) |
+| `Anomaly` | Flagged outlier with deviation score |
+
+### Example Usage
+
+Ask the agent questions like:
+- "What was our revenue trend last quarter?"
+- "Are there any anomalies in our monthly expenses?"
+- "Show me all metrics from the Q3 report"
+
+## ROI Analysis
+
+The ROI module (`app/roi/`) helps analyze vendor spend and calculate return on investment.
+
+### Capabilities
+
+- **Vendor Spend Tracking**: Aggregate costs by vendor, category, and period
+- **Value Metric Capture**: Track hours saved, revenue generated, etc.
+- **ROI Calculation**: Net value, ROI percentage, payback period
+- **Recommendations**: Actionable advice (RETAIN, REVIEW, CANCEL)
+
+### Data Models
+
+| Model | Purpose |
+|-------|---------|
+| `VendorSpend` | Cost entry (vendor, amount, currency, period) |
+| `ValueMetric` | Benefit entry (type, value, unit) |
+| `ROIResult` | Calculated ROI (spend, value, net, percentage) |
+| `Recommendation` | Action advice with rationale |
+
+### Example Usage
+
+Ask the agent questions like:
+- "What's the ROI on Slack?"
+- "Which tools should we consider canceling?"
+- "Show me our top 5 vendors by spend"
+
+## Demo Data
+
+Sample data is available in `data/demo_sets/saas_spend/`:
+- `contracts.csv` - Vendor contract information
+- `invoices.csv` - Historical invoice data
+
+Upload these files to test the analytics capabilities.

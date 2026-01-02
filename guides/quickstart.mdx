@@ -33,9 +33,11 @@ Get OpsOrchestra running locally in under 5 minutes.
     uvicorn app.main:app --reload
     ```
   </Step>
-  <Step title="Start the UI (separate terminal)">
+  <Step title="Start the React UI (separate terminal)">
     ```bash
-    streamlit run ui/streamlit_app.py
+    cd web
+    npm install
+    npm run dev
     ```
   </Step>
 </Steps>
@@ -46,7 +48,7 @@ Get OpsOrchestra running locally in under 5 minutes.
 |---------|-----|
 | API | http://localhost:8000 |
 | API Docs | http://localhost:8000/docs |
-| Chat UI | http://localhost:8501 |
+| React UI (Tactical HUD) | http://localhost:5173 |
 
 ## Next Steps
 

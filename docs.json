@@ -25,18 +25,24 @@
       {
         "tab": "Guides",
         "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "guides/quickstart"
-            ]
-          },
-          {
-            "group": "Advanced",
-            "pages": [
-              "guides/advanced-configuration"
-            ]
-          }
+{
+        "group": "Getting Started",
+        "pages": [
+          "guides/quickstart"
+        ]
+      },
+      {
+        "group": "Features",
+        "pages": [
+          "guides/analytics"
+        ]
+      },
+      {
+        "group": "Advanced",
+        "pages": [
+          "guides/advanced-configuration"
+        ]
+      }
         ]
       },
       {

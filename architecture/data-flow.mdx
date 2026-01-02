@@ -44,11 +44,43 @@ This ensures semantic coherence while fitting within embedding model context win
 
 ## Retrieval Pipeline
 
-When a user asks a question, we employ a **Hybrid Retrieval** strategy.
+When a user asks a question, we employ a **Hybrid RAG Router** strategy.
 
-1. **Semantic Search**: Top-k (k=5) retrieval from ChromaDB using cosine similarity.
-2. **Graph Traversal**: 1-hop neighbor lookup in NetworkX for entities found in the query.
-3. **Context Fusion**: Merging vector results with graph context + co-retrieval history.
+```mermaid
+graph TD
+    Query[User Query] --> Router{Route Query}
+    Router -->|VECTOR| Semantic[Semantic Search]
+    Router -->|HYBRID| Both[Semantic + Graph]
+    Router -->|NONE| Direct[Direct Response]
+    
+    Semantic --> VectorDB[(ChromaDB)]
+    VectorDB --> Context[Context Fusion]
+    
+    Both --> VectorDB
+    Both --> GraphDB[(NetworkX)]
+    GraphDB --> Related[Related Docs]
+    Related --> Context
+    
+    Context --> LLM[Claude 3.5 Sonnet]
+    Direct --> LLM
+    LLM --> Response[Response]
+```
+
+### Router Classification
+
+The router (`agent/nodes/router.py`) uses a fast LLM tier (Haiku/Flash) to classify queries:
+
+| Strategy | When Used | Example |
+|----------|-----------|---------|
+| **VECTOR** | Specific facts, metrics, single-document questions | "What was Q3 revenue?" |
+| **HYBRID** | Relational, exploratory, or broad questions | "What tools are related to Slack?" |
+| **NONE** | Greetings, general chatter | "Hello" |
+
+### Search Strategies
+
+1. **Semantic Search (VECTOR)**: Top-k (k=5) retrieval from ChromaDB using cosine similarity.
+2. **Graph Expansion (HYBRID)**: Semantic search + 1-hop neighbor lookup in NetworkX for co-retrieval patterns.
+3. **Context Fusion**: Merging vector results with graph context, deduplicating overlaps.
 
 ## Decision & Trace Flow
 

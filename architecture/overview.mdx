@@ -9,11 +9,12 @@ description: System design and components
 
 ```mermaid
 graph TD
-    UI[Streamlit UI] --> API[FastAPI Backend]
+    UI[React Tactical HUD] --> API[FastAPI Backend]
     API --> Agent[LangGraph Agent]
+    Agent --> Router[Hybrid RAG Router]
+    Router -->|Semantic| RAG[ChromaDB Vector Store]
+    Router -->|Relational| KG[Knowledge Graph]
     Agent --> LLM[Claude 3.5 Sonnet]
-    Agent --> RAG[ChromaDB Vector Store]
-    Agent --> KG[Knowledge Graph]
     Agent --> Traces[Decision Trace Logger]
     Traces --> Langfuse[Langfuse Observability]
 ```
@@ -23,9 +24,10 @@ graph TD
 ### Agent Layer (LangGraph)
 
 The core intelligence, orchestrating:
-- **Retrieval nodes** for document context
+- **Routing node** for intelligent query classification (semantic vs. relational)
+- **Retrieval nodes** for document context (vector search + graph expansion)
 - **Reasoning nodes** for response generation
-- **Tool nodes** for structured actions
+- **Tool nodes** for structured actions (KPI extraction, ROI calculation)
 
 ### Document Intelligence
 
@@ -45,9 +47,11 @@ The core intelligence, orchestrating:
 | Decision | Rationale |
 |----------|-----------|
 | LangGraph over LangChain | Better state management, graph-based flows |
+| Hybrid RAG Router | Intelligent query routing: semantic for facts, graph for relationships |
 | NetworkX first | Simpler, migrate to Neo4j when triggered |
 | Langfuse | Open-source, self-hostable observability |
 | ChromaDB | Great for prototyping, production-ready |
+| React 19 + Vite | Modern frontend with Tactical HUD design |
 
 ## Security & Privacy
 
