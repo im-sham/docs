@@ -5,35 +5,52 @@ description: AI-powered Business Operations Analyst
 
 # OpsOrchestra
 
-> AI-powered Business Operations Analyst that builds institutional knowledge with every interaction.
+> Transform operational chaos into actionable intelligence. OpsOrchestra is an AI-first platform that builds institutional knowledge with every interaction.
 
-## Overview
+## The Problem
 
-OpsOrchestra is an AI-first BizOps platform for SMB operations teams. It combines conversational AI with document intelligence, knowledge graphs, and automated reporting.
+Operations teams drown in scattered documents, disconnected data sources, and tribal knowledge. Critical insights hide in spreadsheets, PDFs, and databases while decisions get made on gut instinct.
+
+## The Solution
+
+OpsOrchestra combines conversational AI with enterprise-grade intelligence:
 
 <CardGroup cols={2}>
-  <Card title="Quickstart" icon="rocket" href="/guides/quickstart">
-    Get up and running in minutes
+  <Card title="Upload Documents" icon="file-import" href="/features/document-intelligence">
+    PDFs, CSVs, Excel files. Automatic entity extraction and relationship mapping.
   </Card>
-  <Card title="Architecture" icon="diagram-project" href="/architecture/overview">
-    Understand the system design
+  <Card title="Connect Data Sources" icon="database" href="/features/data-connectors">
+    PostgreSQL, MySQL, and more. Live sync with your operational databases.
   </Card>
-  <Card title="Business Case" icon="chart-line" href="/business-case">
-    Value proposition and market fit
+  <Card title="Ask Questions" icon="message-question" href="/guides/quickstart">
+    Natural language queries powered by hybrid RAG and knowledge graph expansion.
   </Card>
-  <Card title="Investor Materials" icon="handshake" href="/investor/pitch-narrative">
-    Pitch narrative and traction
+  <Card title="Get Insights" icon="chart-mixed" href="/guides/analytics">
+    KPI tracking, trend analysis, anomaly detection, and ROI optimization.
+  </Card>
+</CardGroup>
+
+## Who Is This For?
+
+<CardGroup cols={2}>
+  <Card title="Business Users" icon="chart-line" href="/guides/quickstart">
+    Track KPIs, generate reports, and surface insights without SQL or coding.
+  </Card>
+  <Card title="Developers" icon="code" href="/architecture/overview">
+    Extend, customize, or self-host the platform on your infrastructure.
   </Card>
 </CardGroup>
 
 ## Core Capabilities
 
-- **Document Intelligence**: Ingest PDFs, CSVs, Excel with automatic entity extraction
-- **Knowledge Graph**: Relationships between companies, people, metrics, tools
-- **Hybrid RAG**: Intelligent query routing between semantic search and graph expansion
-- **KPI/ROI Analytics**: Metric extraction, trend analysis, and vendor spend optimization
-- **Decision Tracing**: Full audit trail with OpenTelemetry-compatible IDs
-- **Report Generation**: Executive summaries and KPI dashboards
+| Capability | Description |
+|------------|-------------|
+| **Document Intelligence** | Ingest PDFs, CSVs, Excel with automatic chunking and entity extraction |
+| **Knowledge Graph** | LLM-powered relationship discovery between companies, people, metrics, and tools |
+| **Data Connectors** | Live sync from PostgreSQL, MySQL, and other databases |
+| **Hybrid RAG** | Intelligent query routing between semantic search and graph expansion |
+| **KPI Analytics** | Metric extraction, trend analysis, and anomaly detection |
+| **Decision Tracing** | Full audit trail with OpenTelemetry-compatible trace IDs |
 
 ## Tech Stack
 
@@ -45,4 +62,13 @@ OpsOrchestra is an AI-first BizOps platform for SMB operations teams. It combine
 | Vector Store | ChromaDB |
 | Graph | NetworkX |
 | Observability | Langfuse |
-| Frontend | React 19 + Vite (Tactical HUD) |
+| Frontend | React 19 + Vite |
+
+<CardGroup cols={2}>
+  <Card title="Get Started" icon="rocket" href="/guides/quickstart">
+    Start analyzing your data in minutes
+  </Card>
+  <Card title="View Architecture" icon="diagram-project" href="/architecture/overview">
+    Understand how OpsOrchestra works under the hood
+  </Card>
+</CardGroup>

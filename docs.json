@@ -19,30 +19,27 @@
               "index",
               "business-case"
             ]
+          },
+          {
+            "group": "Getting Started",
+            "pages": [
+              "guides/quickstart"
+            ]
           }
         ]
       },
       {
-        "tab": "Guides",
+        "tab": "Features",
         "groups": [
-{
-        "group": "Getting Started",
-        "pages": [
-          "guides/quickstart"
-        ]
-      },
-      {
-        "group": "Features",
-        "pages": [
-          "guides/analytics"
-        ]
-      },
-      {
-        "group": "Advanced",
-        "pages": [
-          "guides/advanced-configuration"
-        ]
-      }
+          {
+            "group": "Core Capabilities",
+            "pages": [
+              "features/document-intelligence",
+              "features/knowledge-graph",
+              "features/data-connectors",
+              "guides/analytics"
+            ]
+          }
         ]
       },
       {

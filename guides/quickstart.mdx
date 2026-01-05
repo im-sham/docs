@@ -1,57 +1,105 @@
 ---
 title: Quickstart
-description: Get OpsOrchestra running locally
+description: Get started with OpsOrchestra in minutes
 ---
 
-# Quickstart
+# Get Started
 
-Get OpsOrchestra running locally in under 5 minutes.
+OpsOrchestra helps you transform scattered documents and data into actionable intelligence. Here's how to get started.
 
-## Prerequisites
-
-- Python 3.11+
-- Anthropic API key
-
-## Installation
+## For SaaS Users
 
 <Steps>
-  <Step title="Clone and install">
-    ```bash
-    git clone https://github.com/im-sham/opsorchestra.git
-    cd opsorchestra
-    pip install -e .
-    ```
+  <Step title="Sign In">
+    Navigate to your OpsOrchestra dashboard and log in with your credentials.
   </Step>
-  <Step title="Configure environment">
-    ```bash
-    cp .env.example .env
-    # Edit .env and add your ANTHROPIC_API_KEY
-    ```
+  <Step title="Upload Documents">
+    Upload your first document (PDF, CSV, or Excel). OpsOrchestra automatically:
+    - Extracts text and tables
+    - Identifies entities (companies, people, metrics, tools)
+    - Maps relationships to your knowledge graph
   </Step>
-  <Step title="Start the API">
-    ```bash
-    uvicorn app.main:app --reload
-    ```
+  <Step title="Connect Data Sources">
+    Optionally connect your databases for live data sync:
+    - PostgreSQL
+    - MySQL (coming soon)
+    - More connectors planned
   </Step>
-  <Step title="Start the React UI (separate terminal)">
-    ```bash
-    cd web
-    npm install
-    npm run dev
-    ```
+  <Step title="Ask Questions">
+    Use natural language to query your data:
+    - "What are our top vendors by spend?"
+    - "Show me KPIs for Q4"
+    - "How does vendor X compare to Y?"
+  </Step>
+  <Step title="Review Insights">
+    Explore the Tactical HUD for:
+    - KPI tracking and trends
+    - Anomaly detection
+    - Automated reports
   </Step>
 </Steps>
 
-## Access Points
+## For Developers (Self-Hosted)
+
+<Accordion title="Local Development Setup">
+
+### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- Anthropic API key
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/im-sham/opsorchestra.git
+cd opsorchestra
+
+# Install Python dependencies
+pip install -e .
+
+# Configure environment
+cp .env.example .env
+# Edit .env and add your ANTHROPIC_API_KEY
+```
+
+### Start the Backend
+
+```bash
+uvicorn app.main:app --reload
+```
+
+### Start the Frontend
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+### Access Points
 
 | Service | URL |
 |---------|-----|
 | API | http://localhost:8000 |
 | API Docs | http://localhost:8000/docs |
-| React UI (Tactical HUD) | http://localhost:5173 |
+| React UI | http://localhost:5173 |
 
-## Next Steps
+</Accordion>
 
-1. Upload a document via the UI
-2. Ask questions about your data
-3. Explore the knowledge graph
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Document Intelligence" icon="file-magnifying-glass" href="/features/document-intelligence">
+    Learn how OpsOrchestra processes and understands your documents
+  </Card>
+  <Card title="Knowledge Graph" icon="diagram-project" href="/features/knowledge-graph">
+    Explore relationship mapping and graph-powered queries
+  </Card>
+  <Card title="Data Connectors" icon="database" href="/features/data-connectors">
+    Connect your databases for live data sync
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/guides/analytics">
+    Set up KPI tracking and automated reporting
+  </Card>
+</CardGroup>

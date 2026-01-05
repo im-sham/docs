@@ -2,6 +2,26 @@
 
 All notable documentation updates will be logged here.
 
+## [2026-01-05] Documentation Overhaul - Phase 6 & 7
+
+### Added
+- `docs/features/document-intelligence.mdx` - Document processing and entity extraction
+- `docs/features/knowledge-graph.mdx` - Graph Intelligence (Phase 6) documentation
+- `docs/features/data-connectors.mdx` - Data Connector Infrastructure (Phase 7A) documentation
+- New "Features" tab in navigation for core capabilities
+
+### Changed
+- `docs/docs.json` - Reorganized navigation with Features tab, moved quickstart to Overview
+- `docs/index.mdx` - Complete rewrite as modern SaaS landing page with CardGroups
+- `docs/guides/quickstart.mdx` - Rewritten for SaaS users (sign in → upload → query flow) with developer self-hosted in accordion
+- `docs/investor/traction.mdx` - Updated to reflect Phase 6 complete, Phase 7A complete, 114 passing tests
+
+### Removed
+- Developer-focused installation as primary flow (moved to accordion)
+- `docs/guides/advanced-configuration.mdx` from main navigation
+
+---
+
 ## [2026-01-02] Streamlit Deprecation
 
 ### Removed
